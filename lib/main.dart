@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 const url =
     'https://img.freepik.com/premium-vector/background-green-grass-with-butterfly_100121-132.jpg?w=740';
 const description =
@@ -7,10 +8,12 @@ const description =
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,10 +21,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,90 +48,95 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
   Padding _bodySection() {
     return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            description,
-            textAlign: TextAlign.justify,
-          ),
-        );
+      padding: const EdgeInsets.all(16.0),
+      child: Text(
+        description,
+        textAlign: TextAlign.justify,
+      ),
+    );
   }
+
   Padding _navigationSection() {
     return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Navigation_item(Icons.call),
-              Navigation_item(Icons.send),
-              Navigation_item(Icons.share),
-            ],
-          ),
-        );
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Navigation_item(Icons.call, 'CALL'),
+          Navigation_item(Icons.send, 'SEND'),
+          Navigation_item(Icons.share, 'SHARE'),
+        ],
+      ),
+    );
   }
-  Column Navigation_item(icon) {
+
+  Column Navigation_item(IconData icon, String name) {
     return Column(
-              children: [
-                Icon(
-                  Icons.call,
-                  color: Colors.blue,
-                  size: 18,
-                ),
-                Text(
-                  'CALL',
-                  style: TextStyle(color: Colors.blue, fontSize: 14),
-                ),
-              ],
-            );
+      children: [
+        Icon(
+          icon,
+          color: Colors.blue,
+          size: 18,
+        ),
+
+
+        Text(
+          name,
+          style: TextStyle(color: Colors.blue, fontSize: 14),
+        ),
+      ],
+    );
   }
+
   Padding _headerSection() {
     return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Oeschinen Lake Campground',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Kandersteg SwitezerLand'),
-                      ),
-                    ]),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 18.0 ,right: 8.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                            Icons.star,
-                          color: Colors.orange,
-                          ),
-
-                      Text('41'),
-                    ],
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Oeschinen Lake Campground',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-
-              ]),
-        );
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Kandersteg SwitezerLand'),
+                  ),
+                ]),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(top: 18.0, right: 8.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    color: Colors.orange,
+                  ),
+                  Text('41'),
+                ],
+              ),
+            ),
+          ]),
+    );
   }
+
   Image _imageSection() {
     return Image.network(
-          url,
-          height: 300,
-          width: double.infinity,
-          fit: BoxFit.contain,
-        );
+      url,
+      height: 300,
+      width: double.infinity,
+      fit: BoxFit.contain,
+    );
   }
 }
