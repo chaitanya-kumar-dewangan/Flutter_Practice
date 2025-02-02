@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Padding _bodySection() {
+  Widget _bodySection() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Text(
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Padding _navigationSection() {
+  Widget _navigationSection() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
@@ -81,8 +81,6 @@ class HomePage extends StatelessWidget {
           color: Colors.blue,
           size: 18,
         ),
-
-
         Text(
           name,
           style: TextStyle(color: Colors.blue, fontSize: 14),
@@ -91,7 +89,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Padding _headerSection() {
+  Widget _headerSection() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -131,12 +129,39 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Image _imageSection() {
-    return Image.network(
-      url,
-      height: 300,
-      width: double.infinity,
-      fit: BoxFit.contain,
+  Widget _imageSection() {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Image.network(
+          url,
+          height: 300,
+          width: double.infinity,
+          fit: BoxFit.contain,
+        ),
+        Positioned.fill(
+          child: Center(
+            child: Text(
+              'Hii this is chaitanya',
+              style: TextStyle(fontSize: 18, color: Colors.white24),
+            ),
+          ),
+        ),
+        Positioned(
+          right: 10,
+          bottom: 10,
+          child: Center(
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.favorite,
+                color: Colors.white,
+                size: 50,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
